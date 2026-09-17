@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Aishat Dosunmu is a learning and development designer, designing for the next generation of tech talent.">
+<title>Aishat Dosunmu — Learning and Development Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="/Aeesha PFP.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-icon-180x180.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+  :root{
+    --ink:#7c4bdd;
+    --ink-line:#F8F9FA;
+    --ink-line-soft:#33526650;
+    --paper:#F8F9FA;
+    --paper-line:#bdade0;
+    --text:#282f35;
+    --stamp:#15f497;
+    --accent: #108a3c;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'josefin sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'fraunces', sans-serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* ===== NAV ===== */
+  nav.topnav{
+    position:sticky; top:0; z-index:10;
+    background:var(--ink);
+    border-bottom:1px solid var(--ink-line-soft);
+  }
+  nav.topnav .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:16px; padding-bottom:16px;
+  }
+  nav.topnav .mark{
+    font-family:'Josefin Sans', sans-serif;
+    color:var(--paper);
+    font-size:16px;
+  }
+  nav.topnav .links{display:flex; gap:28px; font-size:14px;}
+  nav.topnav .links a{color:var(--paper); text-decoration:none;}
+  nav.topnav .links a:hover{color:var(--stamp);}
+  nav.topnav .menu-toggle{
+    display:none;
+    border:0;
+    padding:4px;
+    background:transparent;
+    color:var(--paper);
+    cursor:pointer;
+  }
+  nav.topnav .menu-toggle svg{display:block; width:24px; height:24px;}
+  nav.topnav .menu-toggle path{transition:transform .2s ease, opacity .2s ease; transform-origin:12px 12px;}
+  @media (max-width:640px){
+    nav.topnav .wrap{
+      width:100%;
+      max-width:none;
+      padding-top:12px;
+      padding-bottom:8px;
+      padding-left:16px;
+      padding-right:16px;
+      flex-wrap:wrap;
+    }
+    nav.topnav .menu-toggle{display:block; margin-right:4px;}
+    nav.topnav .links{
+      display:none;
+      flex:0 0 calc(100% + 32px);
+      flex-direction:column;
+      gap:0;
+      margin:8px -16px 0;
+      padding:2px 16px 0;
+      background:var(--paper);
+      border-top:0.5px solid var(--paper-line);
+    }
+    nav.topnav.is-open .links{display:flex;}
+    nav.topnav.is-open .wrap{padding-bottom:0;}
+    body.menu-open{overflow:hidden;}
+    nav.topnav.is-open .menu-toggle path:first-child{transform:translateY(6px) rotate(45deg);}
+    nav.topnav.is-open .menu-toggle path:nth-child(2){opacity:0;}
+    nav.topnav.is-open .menu-toggle path:last-child{transform:translateY(-6px) rotate(-45deg);}
+    nav.topnav .links a{padding:8px 0; color:var(--ink);}
+    nav.topnav .links a + a{border-top:1px solid var(--ink-line-soft);}
+    nav.topnav .links a:hover{color:var(--accent);}
+  }
+  
+
+  /* ===== HERO ===== */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:40px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--ink-line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ink-line-soft) 1px, transparent 1px);
+    background-size:44px 44px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; padding-bottom:56px;}
+  .loc-tag{
+    font-size:13px;
+    color:var(--ink-line);
+    padding-bottom:14px;
+    margin-bottom:36px;
+    border-bottom:1px solid var(--ink-line-soft);
+  }
+  .hero h1{
+    color:var(--paper);
+    font-size:clamp(30px, 5vw, 44px);
+    line-height:1.2;
+    max-width:20ch;
+    font-weight:500;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--stamp);
+  }
+  .hero .bio{
+    margin-top:24px;
+    font-size:16px;
+    color:#d2d6d8;
+    max-width:56ch;
+    line-height:1.75;
+  }
+  .hero .bio + .bio{ margin-top:14px; }
+
+  .callouts{
+    margin-top:52px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    border-top:1px solid var(--ink-line-soft);
+  }
+  .callouts div{
+    padding:8px 8px 8px 0;
+    border-right:1px solid var(--ink-line-soft);
+  }
+  .callouts div:last-child{border-right:none;}
+  .callouts .n{
+    font-family:'Josefin Sans', sans-serif;
+    font-size:clamp(24px,4vw,30px);
+    color:var(--paper);
+    font-weight:500;
+  }
+  .callouts .l{
+    font-family:'Josefin Sans', sans-serif;
+    font-size:14px;
+    max-width:20ch;
+  }
+  @media (max-width:640px){
+    .callouts{grid-template-columns:1fr; }
+    .callouts div{border-right:none; border-bottom:1px solid var(--ink-line-soft); padding:16px 0;}
+  }
+
+  /* ===== SECTION SCAFFOLDING ===== */
+  section{padding:72px 0;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:40px;
+    border-bottom:1px solid var(--paper-line);
+    padding-bottom:14px;
+  }
+  .section-head .idx{
+    font-family:'Josefin Sans', sans-serif;
+    color:var(--accent);
+    font-size:14px;
+  }
+  .section-head h2{font-size:clamp(24px,3.2vw,30px);}
+
+  /* ===== PHILOSOPHY / ABOUT ===== */
+  .philosophy p{
+    font-size:16.5px;
+    max-width:62ch;
+    margin:0 0 18px;
+    color:var(--text);
+  }
+  .philosophy p:last-child{margin-bottom:0;}
+  .edge-tag{
+    display:inline-block;
+    margin-bottom:16px;
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:4px 10px;
+  }
+
+  /* ===== EXPERIENCE ===== */
+  .role-block{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .role-block:first-of-type{padding-top:0;}
+  .role-meta{color:var(--text); font-size:14px;}
+  .role-meta .role-name{
+    font-family:'Josefin Sans', sans-serif;
+    color:var(--ink);
+    font-size:19px;
+    display:block;
+    margin-bottom:4px;
+    line-height:1.3;
+  }
+  .role-meta .dates{font-size:13px;}
+  .role-block p.lead{
+    font-size:15.5px;
+    color:var(--text);
+    margin:0 0 16px;
+    max-width:55ch;
+  }
+  .role-block ul{
+    margin:0; padding:0; list-style:none;
+  }
+  .role-block li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:12px;
+    font-size:15.5px;
+    color:var(--text);
+  }
+  .role-block li::before{
+    content:"";
+    position:absolute;
+    left:0; top:9px;
+    width:7px; height:1px;
+    background:var(--accent);
+  }
+  @media (max-width:640px){
+    .role-block{grid-template-columns:1fr; gap:12px;}
+  }
+
+  /* ===== SKILLS ===== */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--paper-line);
+    border:1px solid var(--paper-line);
+  }
+  .skill-card{
+    background:var(--paper);
+    padding:24px;
+  }
+  .skill-card h3{
+    font-size:15px;
+    font-family:'Josefin Sans', sans-serif;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .skill-card p{
+    margin:0;
+    font-size:14px;
+    color:var(--text);
+    line-height:1.65;
+  }
+  @media (max-width:640px){ .skills-grid{grid-template-columns:1fr;} }
+
+  /* ===== PROJECTS — empty state ===== */
+  .projects-empty{
+    border:1px dashed var(--paper-line);
+    padding:44px 32px;
+    text-align:left;
+    background:repeating-linear-gradient(
+      135deg, transparent, transparent 10px, #00000006 10px, #00000006 11px
+    );
+  }
+  .projects-empty p{
+    margin:0;
+    color:var(--text);
+    font-size:15px;
+    max-width:48ch;
+  }
+  .projects-empty .stamp{
+    display:inline-block;
+    margin-bottom:16px;
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    padding:4px 10px;
+    transform:rotate(-1.5deg);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-section{
+    background:var(--ink);
+    color:var(--paper);
+    padding:88px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--ink-line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ink-line-soft) 1px, transparent 1px);
+    background-size:44px 44px;
+    opacity:.35;
+    pointer-events:none;
+  }
+  .contact-section .wrap{position:relative;}
+  .contact-section h2{
+    color:var(--paper);
+    font-size:clamp(28px,4.5vw,42px);
+    max-width:16ch;
+    font-weight:500;
+  }
+  .contact-section p.sub{
+    color:#e7ecef;
+    max-width:44ch;
+    margin-top:16px;
+    font-size:16px;
+    line-height:1.7;
+  }
+  .contact-actions{
+    margin-top:36px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-block;
+    font-family:'Josefin Sans', sans-serif;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    padding:12px 24px;
+    border:1px solid var(--paper);
+  }
+  .btn-primary{
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .btn-primary:hover{ 
+    background:var(--ink-line-soft);
+    color:var(--paper);
+  }
+  .btn-secondary{
+    color:var(--paper);
+    border-color:var(--paper);
+  }
+  .btn-secondary:hover{ 
+    border-color:var(--stamp);
+    color:var(--stamp);}
+
+  .contact-note{
+    margin-top:44px;
+    padding-top:20px;
+    border-top:1px solid var(--ink-line-soft);
+    font-size:12.5px;
+    color:#7E97A5;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="wrap">
+      <span class="mark">Aishat Dosunmu</span>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16"></path>
+          <path d="M4 12h16"></path>
+          <path d="M4 18h16"></path>
+        </svg>
+      </button>
+      <div class="links" id="site-links">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div class="loc-tag">Lagos, Nigeria</div>
+
+      <h1>I’m an instructional designer building <em>scalable learning experiences</em> and modern workforce training</h1>
+
+      <p class="bio">Most people only see the finished product: a cohort graduating, a live demo day, or a digital certificate. I design what happens before that.</p>
+      <p class="bio">I create end-to-end learning solutions—translating complex skills into structured curricula, interactive digital modules, facilitator playbooks, and assessment strategies that deliver real skill growth.</p>
+
+      <div class="callouts">
+        <div>
+          <div class="n">20,000+</div>
+          <div class="l">learners reached across four programs I've designed for</div>
+        </div>
+        <div>
+          <div class="n">40+</div>
+          <div class="l">subject matter experts recruited and managed across 8 tracks</div>
+        </div>
+        <div>
+          <div class="n">2,000+</div>
+          <div class="l">participants across bootcamps I've run end-to-end</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <section id="philosophy">
+      <div class="section-head">
+        <span class="idx">01</span>
+        <h2>How I think about this work</h2>
+      </div>
+      <div class="philosophy">
+        <span class="edge-tag">Product design background</span>
+        <p>My approach to instructional design begins with structure, not content. Before writing a single learning objective, I map how a program will run at scale: who facilitates it, how it is assessed, and what happens when a step in that process fails.</p>
+        <p>A background in product design gives this work a technical edge. I have gathered requirements, written user stories, and run user acceptance testing on real products, and I bring that same discipline to instructional design — mapping the learner's journey the way a product team maps a user's, then testing where it breaks before a learner ever reaches that point. It allows me to evaluate a learning experience from both sides: as the learner moving through it, and as the instructional designer accountable for how well it holds up.</p>
+        <p>Much of instructional design work is invisible in the final product. It is the standard operating procedure that keeps delivery consistent across facilitators. It is the rubric that keeps an assessment fair across thousands of learners. It is the template that lets the next designer build on a foundation instead of a blank page.</p>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <span class="idx">02</span>
+        <h2>The work</h2>
+      </div>
+
+      <div class="role-block">
+        <div class="role-meta">
+          <span class="role-name">Designing at national scale</span>
+        </div>
+        <div>
+          <p class="lead">Building the instructional design behind digital skilling programs that need to hold together for thousands of learners at once, not just one classroom.</p>
+          <ul>
+            <li>Designed learning experiences across four major programs, collectively reaching over 28,000 participants.</li>
+            <li>Ran a full fellowship program end-to-end: recruited, onboarded, and managed over 40 SMEs across 15+ technical pathways, and coordinated 70 capstone teams aligned to the UN SDGs.</li>
+            <li>Led assessment design for a 3-stage national challenge that narrowed 15,191 state-level participants down to 46 national finalists, working with external subject-matter experts to keep every question fair.</li>
+            <li>Delivered a university-focused program for 800 students across 6 classes, from facilitator recruitment through certification.</li>
+            <li>Coordinated a regional digital skilling pilot, from baseline surveys through remote facilitator onboarding, reaching a 56% certification rate.</li>
+            <li>Wrote 8 SOPs and 10+ templates that are now the standard for how a program gets designed and delivered.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-block">
+        <div class="role-meta">
+          <span class="role-name">Running programs at once</span>
+        </div>
+        <div>
+          <p class="lead">Learning to manage a portfolio of tech training programs without any single one feeling like an afterthought.</p>
+          <ul>
+            <li>Managed 9–15 tech training programs and bootcamps end-to-end, reaching 2,000+ participants across Africa.</li>
+            <li>Owned the full lifecycle — facilitator recruitment and contracting, curriculum support, scheduling, communications, and post-program reporting.</li>
+            <li>Built operational processes that improved consistency across programs, several of which are still in use today.</li>
+            <li>Worked closely with design, operations, and community management to keep delivery seamless from the participant's side.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <span class="idx">03</span>
+        <h2>Toolkit</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Learning &amp; development</h3>
+          <p>Curriculum design, learning audits, facilitator management, assessment design, SOP development, program coordination.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Design &amp; content</h3>
+          <p>Figma, Framer, instructional materials, handbook and workbook design, participant-facing content.</p>
+        </div>
+        <div class="skill-card">
+          <h3>People &amp; operations</h3>
+          <p>Workforce planning, stakeholder management, cross-functional coordination across design, ops, and delivery teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <span class="idx">04</span>
+        <h2>Selected projects</h2>
+      </div>
+      <div class="projects-empty">
+        <span class="stamp">Coming soon</span>
+        <p>Case studies on program design, facilitator playbooks, and assessment frameworks are being added here shortly.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <h2>Let's talk about your next program.</h2>
+      <p class="sub">Whether it's a curriculum that needs structure, a facilitator team that needs a playbook, or an assessment that needs to hold up at scale — reach out.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:aishatdosunmu@gmail.com?subject=Let%27s%20work%20together">Send me a message</a>
+        <a class="btn btn-secondary" href="https://linkedin.com/in/aishat-dosunmu" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="contact-note">Lagos, Nigeria</div>
+    </div>
+  </section>
+
+  <script>
+    const topnav = document.querySelector('.topnav');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = topnav.classList.toggle('is-open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    document.querySelectorAll('.links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        topnav.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+  </script>
+
+</body>
+</html>
